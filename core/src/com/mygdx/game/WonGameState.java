@@ -53,7 +53,6 @@ public class WonGameState implements State{
     @Override
     public void Update(){
         music.setVolume(StateManager_Ref.sound_volume/100);
-        music.isLooping();
         music.play();
     }
     @Override
