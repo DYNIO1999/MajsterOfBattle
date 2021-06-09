@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,7 +20,9 @@ public class WonGameState implements State{
 
     private SpriteBatch batch;
 
+    Music music;
     WonGameState(GameStateManager statemanager){
+        music = Gdx.audio.newMusic(Gdx.files.internal("win.wav"));
         this.batch = new SpriteBatch();
         this.StateManager_Ref = statemanager;
 
@@ -39,12 +42,16 @@ public class WonGameState implements State{
     public void Input(){
         boolean button3_status = exit.Update();
         if(button3_status==true){
+            music.stop();
             StateManager_Ref.PopState();
             Gdx.app.exit();
         }
     }
     @Override
     public void Update(){
+        music.setVolume(StateManager_Ref.sound_volume/100);
+        music.isLooping();
+        music.play();
     }
     @Override
     public void Draw(){

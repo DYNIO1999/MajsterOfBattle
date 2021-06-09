@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -30,6 +31,9 @@ public class MainMenu implements State {
     private Button options;
     private Button exit;
     private GameStateManager StateManager_Ref;
+
+    Music menu_music;
+
     MainMenu(GameStateManager statemanager){
         this.StateManager_Ref =statemanager;
         shape = new ShapeRenderer();
@@ -54,6 +58,10 @@ public class MainMenu implements State {
                 ((425)-(options_0.getHeight()/2)), options_0.getWidth(), options_0.getHeight(), options_0,options_1,options_2,batch);
         exit= new Button(((1280/2)-(exit_0.getWidth()/2)),
                 ((300)-(exit_0.getHeight()/2)), exit_0.getWidth(), exit_0.getHeight(), exit_0,exit_1,exit_2,batch);
+
+        menu_music = Gdx.audio.newMusic(Gdx.files.internal("menu.wav"));
+        System.out.println(StateManager_Ref.sound_volume/100);
+        menu_music.setVolume(StateManager_Ref.sound_volume/100);
     }
     @Override
     public void Input(){
@@ -64,17 +72,24 @@ public class MainMenu implements State {
     }
     @Override
     public void Update() {
+        System.out.println(StateManager_Ref.sound_volume/100);
+        menu_music.setVolume(StateManager_Ref.sound_volume/100);
+        menu_music.isLooping();
+        menu_music.play();
         //System.out.println("I am updating!");
         boolean button1_status = play.Update();
         boolean button2_status = options.Update();
         boolean button3_status = exit.Update();
         if(button1_status==true){
+            menu_music.stop();
          StateManager_Ref.PushState(new PlayMapState(StateManager_Ref));
         }
         if(button2_status==true){
+            menu_music.stop();
             StateManager_Ref.PushState(new OptionsMenu(StateManager_Ref));
         }
         if(button3_status==true){
+            menu_music.stop();
             StateManager_Ref.PopState();
             Gdx.app.exit();
         }

@@ -3,7 +3,7 @@ package com.mygdx.game;
 import java.util.Stack;
 
 public class GameStateManager {
-    public float sound_volume;
+    public float sound_volume=50.0f;
     public int screen_width=1280;
     public int screen_height=960;
     Stack<State> states = new Stack<State>();
