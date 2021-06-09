@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -54,6 +55,8 @@ public class PlayMapState implements State {
 
     Castle castle;
 
+    Music menu_music;
+
     PlayMapState(GameStateManager statemanager){
         batch = new SpriteBatch();
         //localinput = new InputAdapter();
@@ -103,6 +106,8 @@ public class PlayMapState implements State {
         points_3 = new Texture(Gdx.files.internal("22.png"));
 
         counter_victories =0;
+
+        menu_music = Gdx.audio.newMusic(Gdx.files.internal("map.wav"));
     }
     @Override
     public void Input(){
@@ -117,6 +122,10 @@ public class PlayMapState implements State {
     }
     @Override
     public void Update() {
+        menu_music.setVolume(StateManager_Ref.sound_volume/100);
+        menu_music.isLooping();
+        menu_music.play();
+        //menu_music.setVolume(StateManager_Ref.sound_volume/100);
         //System.out.println(mousePos);
         //camera.update();
         //float distance =0;
@@ -140,6 +149,7 @@ public class PlayMapState implements State {
         }
         if (Intersector.overlapConvexPolygons(player.GetPlayerShape(),castle.GetShape(),mtv)) {
             if(quest_check==true&&counter_victories>=2){
+                menu_music.stop();
                 StateManager_Ref.PushState(new WonGameState(StateManager_Ref));
             }
             player.ApplyCollision(mtv.normal.x,mtv.normal.y, mtv.depth);
@@ -149,6 +159,7 @@ public class PlayMapState implements State {
         }
         if(enemy2!=null) {
             if (Intersector.overlapConvexPolygons(player.GetPlayerShape(), enemy2.GetShape(), mtv)) {
+                menu_music.stop();
                 System.out.println("ENEMY2");
                 player.ApplyCollision(mtv.normal.x, mtv.normal.y, mtv.depth);
                 StateManager_Ref.PushState(new BattleState_1(StateManager_Ref,2));
@@ -158,6 +169,7 @@ public class PlayMapState implements State {
         }
         if(enemy1!=null) {
             if (Intersector.overlapConvexPolygons(player.GetPlayerShape(), enemy1.GetShape(), mtv)) {
+                menu_music.stop();
                 System.out.println("ENEMY1");
                 player.ApplyCollision(mtv.normal.x, mtv.normal.y, mtv.depth);
                 StateManager_Ref.PushState(new BattleState_1(StateManager_Ref,1));
@@ -166,6 +178,7 @@ public class PlayMapState implements State {
             }
         }
         if(pause_state==true){
+            menu_music.stop();
             StateManager_Ref.PushState(new PlayPauseState(StateManager_Ref));
 
             //StateManager_Ref.PushState(new LostBattleState(this.StateManager_Ref));

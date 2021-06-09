@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -81,13 +82,17 @@ public class BattleState_1 implements State {
     Vector<PlayerBattle> enemy_units = new Vector<PlayerBattle>(0);
 
     boolean enemy_clicked;
-
+    int p_empty=0;
+    int e_empty=0;
 
     private  int battle_map_index;
+
+    Music menu_music;
     BattleState_1(GameStateManager statemanager, int map){
 
         this.StateManager_Ref =statemanager;
         this.battle_map_index = map;
+        menu_music =Gdx.audio.newMusic(Gdx.files.internal("battle1.wav"));
         if(battle_map_index==1) {
             map_texture = new Texture(Gdx.files.internal("battle_map_1.png"));
         }
@@ -156,6 +161,9 @@ public class BattleState_1 implements State {
         player_turn = true;
         enemy_turn = false;
         num_of_moves = 0;
+        p_empty =0;
+        e_empty =0;
+        menu_music.setVolume(StateManager_Ref.sound_volume/100);
     }
     public void Input(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
@@ -170,9 +178,14 @@ public class BattleState_1 implements State {
         }
     }
     public void Update() {
+        menu_music.setVolume(StateManager_Ref.sound_volume/100);
+        menu_music.isLooping();
+        menu_music.play();
         if(enemy_units.isEmpty()){
+            menu_music.stop();
             StateManager_Ref.PushState(new WonBattleState(StateManager_Ref));
         }else if(player_units.isEmpty()){
+            menu_music.stop();
             StateManager_Ref.PushState(new LostGameState(StateManager_Ref));
         }
         if (clicked == true) {
@@ -200,7 +213,6 @@ public class BattleState_1 implements State {
                                 for (int k = 0; k < player_units.size(); k++) {
                                     if (player_units.elementAt(k).moved == false) {
                                         if (player_units.elementAt(k).current_row == row && player_units.elementAt(k).current_col == col) {
-                                            System.out.println("TEST");
                                             second_counter = 1;
                                             index_temp = k;
                                             player_clicked = true;
@@ -258,19 +270,19 @@ public class BattleState_1 implements State {
                 }
             }
             if (counter == 1 && second_counter == 1&&enemy_turn ==true) {
-            int v1 = row - enemy_units.elementAt(index_temp).current_row;
-            int v2 = col - enemy_units.elementAt(index_temp).current_col;
-            if (v1 != 0 || v2 != 0) {
-                second_counter = 0;
-                counter = 0;
-                if(num_of_moves>=enemy_units.size() && enemy_turn == true){
-                    enemy_turn =false;
-                    player_turn =true;
-                    num_of_moves =0;
-                    for (int k = 0; k < player_units.size(); k++) {
-                        player_units.elementAt(k).moved =false;
+                int v1 = row - enemy_units.elementAt(index_temp).current_row;
+                int v2 = col - enemy_units.elementAt(index_temp).current_col;
+                if (v1 != 0 || v2 != 0) {
+                    second_counter = 0;
+                    counter = 0;
+                    if (num_of_moves >= enemy_units.size() && enemy_turn == true) {
+                        enemy_turn = false;
+                        player_turn = true;
+                        num_of_moves = 0;
+                        for (int k = 0; k < player_units.size(); k++) {
+                            player_units.elementAt(k).moved = false;
+                        }
                     }
-                }
             }
             if (Math.abs(v1) <= 1 && Math.abs(v2) <= 1) {
                 enemy_units.elementAt(index_temp).SetCurrentRowColumn(row, col);
@@ -295,8 +307,8 @@ public class BattleState_1 implements State {
         System.out.println("TUNR_PLAYER: "+player_turn);
         System.out.println("TURN ENEMY:  "+enemy_turn);
         System.out.println("NUM_MOVES"+num_of_moves);
-
-
+        System.out.println("P_MOVES"+p_empty);
+        System.out.println("E_MOVES"+e_empty);
     }
     public void Draw(){
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

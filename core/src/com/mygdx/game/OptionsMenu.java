@@ -97,7 +97,10 @@ public class OptionsMenu implements State{
         boolean button2_status=exit.Update();
         if(button0_status==true){
             float volume =(((slider_sprite.getX()+slider_sprite.getWidth()/2)-bar_sprite.getX())/441)*100;
-            GameEngine.sound_volume = volume;
+            StateManager_Ref.sound_volume = volume;
+            if(volume<=5){
+                StateManager_Ref.sound_volume =0;
+            }
             System.out.println(volume);
         }
         if(button1_status==true){
