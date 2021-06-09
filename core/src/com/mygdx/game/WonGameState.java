@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+/**
+ * Klasa, która implementuje wygrany stan gry
+ */
 public class WonGameState implements State{
     private Texture background_texture;
     private Texture title_texture;

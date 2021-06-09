@@ -9,10 +9,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 
+/**
+ * Główna klasa gry
+ */
 public class GameEngine extends ApplicationAdapter {
-	/**
-	 * GameStateManager -cos
-	 */
+
 	public  GameStateManager GameStates;
 	static public float sound_volume;
 	static public int lost_battles;

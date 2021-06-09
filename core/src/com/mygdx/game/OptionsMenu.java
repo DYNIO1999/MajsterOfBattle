@@ -10,6 +10,9 @@ import com.badlogic.gdx.math.Vector3;
 
 import java.util.Timer;
 
+/**
+ * Klasa, która implementuje stan opcji gry
+ */
 public class OptionsMenu implements State{
     private SpriteBatch batch;
     private Texture reject_options_texture;

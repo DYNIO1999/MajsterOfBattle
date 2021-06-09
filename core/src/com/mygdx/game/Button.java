@@ -7,6 +7,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 
+/**
+ * Konstruuje i implementuje mechaniki związane z przyciskiem
+ */
 public class Button {
     public int buttonstatus;
     private int x;
@@ -34,6 +37,11 @@ public class Button {
         buttonstatus =0;
         //
     }
+
+    /**
+     * @return
+     * Konstruuje i implementuje mechaniki związane z przyciskiem
+     */
     public boolean Input(){
         //System.out.println("Y"+this.y);
         mousePos.set(Gdx.input.getX(), Gdx.input.getY(), 0);

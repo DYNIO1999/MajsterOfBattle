@@ -11,6 +11,9 @@ import com.badlogic.gdx.math.Polygon;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klasa, która tworzy i implementuje przeciwnika na mapie
+ */
 public class Enemy_Map extends DynamicBody{
     class Point{
         int x;
@@ -93,10 +96,6 @@ public class Enemy_Map extends DynamicBody{
         moving =true;
         it=0;
         sprite.setPosition(test_arr[0].x,test_arr[0].y);
-        System.out.println(test_arr[0].x);
-        System.out.println(test_arr[0].y);
-        System.out.println(sprite.getX());
-        System.out.println(sprite.getY());
 
         counter =0;
     }
@@ -171,6 +170,11 @@ public class Enemy_Map extends DynamicBody{
         shape.rect(sprite.getX()+5, sprite.getY(),sprite.getWidth(),sprite.getHeight());
         shape.end();
     }
+
+    /**
+     * @return
+     * Zwraca poligon przeciwnika
+     */
     public Polygon GetShape(){
         return enemy_poly;
     }
@@ -178,11 +182,24 @@ public class Enemy_Map extends DynamicBody{
         sprite.setX((float)(sprite.getX()+dX * distance *speed * elapsed));
         sprite.setY((float)(sprite.getY()+dY * distance *speed * elapsed));
     }
+
+    /**
+     * @param A
+     * @param B
+     * @return
+     * Liczy dystans pomiędzy dwoma punktami
+     */
     double calculate_distance(Point A,Point B){
         double result =-1;
         result = Math.sqrt(Math.pow((B.x-A.x),2.0)+Math.pow((B.y-A.y),2.0));
         return result;
     }
+
+    /**
+     * @param arr
+     * @return
+     * Implementuje algorytm najbliższego sąsiada pomiędzy punktami
+     */
     int[] n_neighbour(Point[] arr){
         int start_index =-1;
         int end_index =-1;

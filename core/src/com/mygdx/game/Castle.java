@@ -8,6 +8,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Polygon;
 
+/**
+ * Konstruuje obiekt typu zamek i wszelkich mechanik z nim związanych
+ */
 public class Castle extends StaticBody{
     private Batch batch;
     private Texture castle;

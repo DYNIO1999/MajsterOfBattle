@@ -9,6 +9,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
+/**
+ * Klasa implementująca stan głównej gry
+ */
 public class MainMenu implements State {
     public ShapeRenderer shape;
     public OrthographicCamera camera;

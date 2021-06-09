@@ -13,6 +13,10 @@ import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.g2d.Animation;
+
+/**
+ * Klasa implementująca postać gracza na mapie gry
+ */
 public class PlayerMap extends DynamicBody{
 
     private Vector3 mousePos = new Vector3();

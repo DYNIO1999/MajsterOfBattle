@@ -18,8 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Klasa bitwy.
+ */
 public class BattleState_1 implements State {
-    //16x10
+    /**
+     * Przechowuje informacje odnoszące się do gridu mapy.
+     */
     class Grid{
         int x;
         int y;
@@ -165,6 +170,10 @@ public class BattleState_1 implements State {
         e_empty =0;
         menu_music.setVolume(StateManager_Ref.sound_volume/100);
     }
+
+    /**
+     * Metoda zbierająca wejścia od gracza
+     */
     public void Input(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             quit = true;
@@ -177,6 +186,10 @@ public class BattleState_1 implements State {
             counter =0;
         }
     }
+
+    /**
+     * Aktualizuje wejscia od gracza
+     */
     public void Update() {
         menu_music.setVolume(StateManager_Ref.sound_volume/100);
         menu_music.isLooping();
@@ -303,13 +316,11 @@ public class BattleState_1 implements State {
         for(int i=0;i<enemy_units.size();i++){
             enemy_units.elementAt(i).Update();
         }
-
-        System.out.println("TUNR_PLAYER: "+player_turn);
-        System.out.println("TURN ENEMY:  "+enemy_turn);
-        System.out.println("NUM_MOVES"+num_of_moves);
-        System.out.println("P_MOVES"+p_empty);
-        System.out.println("E_MOVES"+e_empty);
     }
+
+    /**
+     * Rysuje gre
+     */
     public void Draw(){
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
@@ -337,6 +348,13 @@ public class BattleState_1 implements State {
             enemy_units.elementAt(i).Draw();
         }
     }
+
+
+    /**
+     * @param current_row
+     * @param current_col
+     * Pokazuje możliwość poruszania się
+     */
     void ShowWays(int current_row, int current_col){
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         if(current_row +1 <5) {
