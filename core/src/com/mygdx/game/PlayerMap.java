@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.g2d.Animation;
 
 /**
- * Klasa implementująca postać gracza na mapie gry
+ * Klasa implementujaca postac gracza na mapie gry
  */
 public class PlayerMap extends DynamicBody{
 

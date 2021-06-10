@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
- * Klasa implementująca stan pauzy
+ * Klasa implementujaca stan pauzy
  */
 public class PlayPauseState  implements State{
 

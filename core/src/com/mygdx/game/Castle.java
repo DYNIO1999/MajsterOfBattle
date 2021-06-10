@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Polygon;
 
 /**
- * Konstruuje obiekt typu zamek i wszelkich mechanik z nim związanych
+ * Konstruuje obiekt typu zamek i wszelkich mechanik z nim zwiazanych
  */
 public class Castle extends StaticBody{
     private Batch batch;

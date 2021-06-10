@@ -3,7 +3,7 @@ package com.mygdx.game;
 import java.util.Stack;
 
 /**
- * Klasa implementująca maszynę stanów odnoszących się do stanów gry
+ * Klasa implementujaca maszyne stanow odnoszacych sie do stanow gry
  */
 public class GameStateManager {
     public float sound_volume=50.0f;

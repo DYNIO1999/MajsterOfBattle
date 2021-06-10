@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
- * Klasa, która implementuje wygrany stan bitwy
+ * Klasa, ktora implementuje wygrany stan bitwy
  */
 public class WonBattleState implements State{
     private Texture background_texture;

@@ -23,7 +23,7 @@ import java.util.Vector;
  */
 public class BattleState_1 implements State {
     /**
-     * Przechowuje informacje odnoszące się do gridu mapy.
+     * Przechowuje informacje odnoszace sie do gridu mapy.
      */
     class Grid{
         int x;
@@ -172,7 +172,7 @@ public class BattleState_1 implements State {
     }
 
     /**
-     * Metoda zbierająca wejścia od gracza
+     * Metoda zbierajaca wejscia od gracza
      */
     public void Input(){
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
@@ -353,7 +353,7 @@ public class BattleState_1 implements State {
     /**
      * @param current_row
      * @param current_col
-     * Pokazuje możliwość poruszania się
+     * Pokazuje mozliwosc poruszania sie
      */
     void ShowWays(int current_row, int current_col){
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);

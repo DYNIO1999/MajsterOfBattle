@@ -10,7 +10,7 @@ import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 
 /**
- * Główna klasa gry
+ * Glowna klasa gry
  */
 public class GameEngine extends ApplicationAdapter {
 

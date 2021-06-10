@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
- * Klasa bazowa, która implementuje "static body"
+ * Klasa bazowa, ktora implementuje "static body"
  */
 public class StaticBody {
     public int x;

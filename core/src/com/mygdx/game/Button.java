@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 
 /**
- * Konstruuje i implementuje mechaniki związane z przyciskiem
+ * Konstruuje i implementuje mechaniki zwiazane z przyciskiem
  */
 public class Button {
     public int buttonstatus;
@@ -40,7 +40,7 @@ public class Button {
 
     /**
      * @return
-     * Konstruuje i implementuje mechaniki związane z przyciskiem
+     * Konstruuje i implementuje mechaniki zwiazane z przyciskiem
      */
     public boolean Input(){
         //System.out.println("Y"+this.y);

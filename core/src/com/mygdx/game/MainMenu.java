@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 /**
- * Klasa implementująca stan głównej gry
+ * Klasa implementujaca stan glownej gry
  */
 public class MainMenu implements State {
     public ShapeRenderer shape;

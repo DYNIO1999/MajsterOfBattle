@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
- * Klasa implementująca stan przegranej gry
+ * Klasa implementujaca stan przegranej gry
  */
 public class LostGameState implements State{
     private Texture background_texture;

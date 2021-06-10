@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
- * Klasa, która implementuje jednostkę gracza na mapie bitwy
+ * Klasa, ktora implementuje jednostke gracza na mapie bitwy
  */
 public class PlayerBattle {
 

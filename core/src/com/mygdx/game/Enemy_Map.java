@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Klasa, która tworzy i implementuje przeciwnika na mapie
+ * Klasa, ktora tworzy i implementuje przeciwnika na mapie
  */
 public class Enemy_Map extends DynamicBody{
     class Point{
@@ -187,7 +187,7 @@ public class Enemy_Map extends DynamicBody{
      * @param A
      * @param B
      * @return
-     * Liczy dystans pomiędzy dwoma punktami
+     * Liczy dystans pomiedzy dwoma punktami
      */
     double calculate_distance(Point A,Point B){
         double result =-1;
@@ -198,7 +198,7 @@ public class Enemy_Map extends DynamicBody{
     /**
      * @param arr
      * @return
-     * Implementuje algorytm najbliższego sąsiada pomiędzy punktami
+     * Implementuje algorytm najblizszego sasiada pomiedzy punktami
      */
     int[] n_neighbour(Point[] arr){
         int start_index =-1;
